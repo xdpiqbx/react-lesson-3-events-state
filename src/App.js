@@ -1,10 +1,13 @@
-//import Painting from './components/Painting'
-import paintingsData from './painting.json';
+// import Painting from './components/Painting'
+// import paintingsData from './painting.json';
 
-import PaintingList from './components/PaintingList';
-import Section from './components/Section';
-import ColorPicker from './components/ColorPicker/ColorPicker';
-import Panel from './components/Panel';
+// import PaintingList from './components/PaintingList';
+// import Section from './components/Section';
+// import Panel from './components/Panel';
+// import Dropdown from './components/Dropdown';
+// import ColorPicker from './components/ColorPicker/ColorPicker';
+import { Component } from 'react';
+import TodoList from './components/TodoList';
 
 // export default function App(){
 //     return(
@@ -62,33 +65,43 @@ import Panel from './components/Panel';
 // }
 // При рендере однотипных елементов нужен key для каждого (на самом верхнем уровне, теге)
 
-const colorPickerOptions = [
-  { label: 'red', color: '#F44336' },
-  { label: 'green', color: '#4CAF50' },
-  { label: 'blue', color: '#2196F3' },
-  { label: 'grey', color: '#607D8B' },
-  { label: 'pink', color: '#E91E63' },
-  { label: 'indigo', color: '#3F51B5' },
-];
+// const colorPickerOptions = [
+//   { label: 'red', color: '#F44336' },
+//   { label: 'green', color: '#4CAF50' },
+//   { label: 'blue', color: '#2196F3' },
+//   { label: 'grey', color: '#607D8B' },
+//   { label: 'pink', color: '#E91E63' },
+//   { label: 'indigo', color: '#3F51B5' },
+// ];
 
-export default function App() {
-  return (
-    <div>
-      <ColorPicker options={colorPickerOptions} />
-      <Panel title="Last News">
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
-          tempore sint veritatis facere soluta fugiat expedita at nostrum quod
-          esse dolores, nisi quis architecto eveniet dolore. Maiores illum fugit
-          eius?
-        </p>
-      </Panel>
-      {/* <PaintingList paintingList={paintingsData} /> */}
-      <Section title="ТОП недели!">
-        <PaintingList paintingList={paintingsData} />{' '}
-        {/* это children у Section */}
-      </Section>
-      <Section />
-    </div>
-  );
+class App extends Component {
+  state = {
+    todos: [],
+  };
+
+  render() {
+    const { todos } = this.state;
+    return (
+      <div>
+        <TodoList todos={todos} />
+        {/* <ColorPicker options={colorPickerOptions} /> */}
+        {/* <Dropdown /> */}
+        {/* <Panel title="Last News">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda
+          </p>
+        </Panel> */}
+        {/* <PaintingList paintingList={paintingsData} /> */}
+        {/* <Section title="ТОП недели!">
+          <PaintingList paintingList={paintingsData} />{' '}
+        </Section>
+        <Section /> */}
+      </div>
+    );
+  }
 }
+
+export default App;
+
+//https://github.com/luxplanjay/react-18
+//https://youtu.be/terXi4NlcoI?t=5833
